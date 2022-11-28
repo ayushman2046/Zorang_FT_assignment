@@ -56,4 +56,18 @@ while(lo<=hi):
         hi = mid-1
     else:
         lo = mid+1
+remaining = 0
+for i in ans:
+    if len(i)==0:
+        remaining+=1
+l = []
+for i in range(len(ans)):
+    if remaining==0:
+        break
+    while(len(ans[i])>1 and remaining>0):
+        l.append(ans[i].pop())
+        remaining-=1
+for i in range(len(ans)):
+    if ans[i]==[]:
+        ans[i].append(l.pop()) #----------------ensuring every agents deliver at least one parcel.
 print(ans)
